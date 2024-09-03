@@ -1,0 +1,27 @@
+{
+    "idSave": 3304,
+    "isFirstSession": false,
+    "language": "en",
+    "promptDone": false,
+    "money": 113,
+    "addBladePrice": 300.0,
+    "addEnemyPrice": 31.62404441833496,
+    "addSpeedPrice": 100.0,
+    "spawnInterval": 0.6017008423805237,
+    "countOfBlades": 1,
+    "countOfMaces": 1,
+    "speedBlade": 2.0,
+    "speedMace": 100.0,
+    "addBladeLevel": 1,
+    "addEnemyLevel": 8,
+    "addSpeedLevel": 1,
+    "kills": 123.0,
+    "killsGoal": 10000.0,
+    "scene": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ]
+}
