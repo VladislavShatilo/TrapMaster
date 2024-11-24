@@ -35,7 +35,8 @@ public class MoveBlade : MonoBehaviour
         Destroy(other.gameObject);
 
         GameObject particle = Instantiate(particleObject, new Vector3(transform.position.x,-0.5f,transform.position.z), transform.rotation);
-        YandexGame.savesData.money += Random.Range(1, 3) ;
+
+        YandexGame.savesData.money += Random.Range(1, 10) ;
         YandexGame.savesData.kills++;
         StartCoroutine(clear(particle));
  

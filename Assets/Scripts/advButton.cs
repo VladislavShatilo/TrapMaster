@@ -15,7 +15,7 @@ public class advButton : MonoBehaviour
     private int money;
     void OnEnable()
     {
-        money = YandexGame.savesData.addEnemyLevel * 70;
+        money = (int)(YandexGame.savesData.addEnemyPrice * 2f);
         enemiesAdvButton.gameObject.SetActive(false);
         speedAdvButton.gameObject.SetActive(false);
         moneyAdvButton.gameObject.SetActive(false);
@@ -88,9 +88,10 @@ public class advButton : MonoBehaviour
     {
         enemiesAdvButton.gameObject.SetActive(true);
         speedAdvButton.gameObject.SetActive(true);
-        
-        money = YandexGame.savesData.addEnemyLevel * 40;
-        moneyAdvButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = money.ToString(); 
+
+        money = (int)(YandexGame.savesData.addEnemyPrice * 2f);
+        moneyAdvButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = 
+            FindObjectOfType<Numbers>().FormatNumber(money); 
         moneyAdvButton.gameObject.SetActive(true);
 
     }

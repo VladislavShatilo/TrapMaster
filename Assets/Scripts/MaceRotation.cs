@@ -15,7 +15,6 @@ public class MaceRotation : MonoBehaviour
     {
 
         GameObject particle = Instantiate(particleObject, new Vector3(other.gameObject.transform.position.x, -0.5f, other.gameObject.transform.position.z), other.gameObject.transform.rotation);
-        other.gameObject.GetComponent<AudioSource>().Play();
         Destroy(other.gameObject);
 
         YandexGame.savesData.money += Random.Range(1, 3);

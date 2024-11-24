@@ -13,7 +13,7 @@ public class Numbers : MonoBehaviour
    
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject newStageObject;
-    public static string FormatNumber(float number)
+    public  string FormatNumber(float number)
     {
         if (number >= 1_000_000)
         {

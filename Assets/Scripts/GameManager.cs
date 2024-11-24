@@ -159,9 +159,19 @@ public class GameManager : MonoBehaviour
     }
     public void addEnemyPub()
     {
-        YandexGame.savesData.spawnInterval -= YandexGame.savesData.spawnInterval * 0.07f;
+        if(YandexGame.savesData.addEnemyLevel <= 15)
+        {
+            YandexGame.savesData.spawnInterval -= YandexGame.savesData.spawnInterval * 0.15f;
+
+        }
+        else
+        {
+            YandexGame.savesData.spawnInterval -= YandexGame.savesData.spawnInterval * 0.07f;
+
+        }
         YandexGame.savesData.addEnemyPrice *= 1.4f;
         YandexGame.savesData.addEnemyLevel++;
+        
         reloadGame();
 
     }
@@ -177,7 +187,7 @@ public class GameManager : MonoBehaviour
             blades[YandexGame.savesData.countOfBlades - 1].SetActive(true);
             YandexGame.savesData.addBladeLevel++;
 
-            YandexGame.savesData.addBladePrice *= 3f;
+            YandexGame.savesData.addBladePrice *= 7f;
             reloadGame();
         }
 
@@ -197,7 +207,7 @@ public class GameManager : MonoBehaviour
     {
         YandexGame.savesData.addSpeedPrice *= 2f;
         YandexGame.savesData.addSpeedLevel++;
-        YandexGame.savesData.speedBlade *= 1.5f;
+        YandexGame.savesData.speedBlade *= 1.25f;
 
         reloadGame();
     }
@@ -249,13 +259,13 @@ public class GameManager : MonoBehaviour
         if (YandexGame.savesData.addSpeedPrice < YandexGame.savesData.money)
         {
             addSpeedPriceImage.color = new Color(204f / 255f, 20f / 255f, 1);
-            addBladeButton.enabled = true;
+            addSpeedButton.enabled = true;
 
         }
         else
         {
             addSpeedPriceImage.color = Color.grey;
-            addBladeButton.enabled = false;
+            addSpeedButton.enabled = false;
 
         }
         coinText.text =FormatNumber( YandexGame.savesData.money);

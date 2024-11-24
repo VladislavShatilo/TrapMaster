@@ -1,2 +1,0 @@
-Build path: C:/xampp/htdocs/Games6
-Build number: 3

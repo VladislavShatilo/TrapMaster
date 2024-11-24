@@ -25,7 +25,7 @@ namespace YG
         public int addEnemyLevel = 1;
         public int addSpeedLevel = 1;
         public float kills = 0;
-        public float killsGoal = 10000;
+        public float killsGoal = 5000;
         public int scene = 1;
         // Можно задать полям значения по умолчанию
         public string newPlayerName = "Hello!";
