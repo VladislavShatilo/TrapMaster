@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
 public class LoadStage : MonoBehaviour
 {
@@ -18,7 +17,7 @@ public class LoadStage : MonoBehaviour
     void Awake ()
     {
      
-        if(YandexGame.savesData.scene == 1)
+        if(Storage.Instance.scene == 1)
         {
             manager.GetComponent<GameManager>().enabled = true;
             for (int i = 0; i < maces.Length; i++)
@@ -30,7 +29,7 @@ public class LoadStage : MonoBehaviour
             onTrapButtonImage.sprite = onTrapButtonSprite[0];
 
         }
-        else if(YandexGame.savesData.scene == 2)
+        else if(Storage.Instance.scene == 2)
         {
             for (int i = 0; i < blades.Length; i++)
             {

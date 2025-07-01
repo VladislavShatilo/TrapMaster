@@ -1,2 +1,0 @@
-Build path: C:/xampp/htdocs/GameTrap
-Build number: 1

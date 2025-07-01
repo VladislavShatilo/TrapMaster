@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YG;
 
 public class MaceRotation : MonoBehaviour
 {
@@ -17,8 +16,8 @@ public class MaceRotation : MonoBehaviour
         GameObject particle = Instantiate(particleObject, new Vector3(other.gameObject.transform.position.x, -0.5f, other.gameObject.transform.position.z), other.gameObject.transform.rotation);
         Destroy(other.gameObject);
 
-        YandexGame.savesData.money += Random.Range(1, 3);
-        YandexGame.savesData.kills++;
+        Storage.Instance.money += Random.Range(1, 3);
+        Storage.Instance.kills++;
         StartCoroutine(clear(particle));
 
     }
@@ -32,11 +31,11 @@ public class MaceRotation : MonoBehaviour
     {
         if (isLeft)
         {
-            rotationSpeed = new Vector3(0, -YandexGame.savesData.speedMace, 0);
+            rotationSpeed = new Vector3(0, -Storage.Instance.speedMace, 0);
         }
         else
         {
-            rotationSpeed = new Vector3(0,YandexGame.savesData.speedMace, 0);
+            rotationSpeed = new Vector3(0,Storage.Instance.speedMace, 0);
         }
         
         transform.Rotate(rotationSpeed * Time.deltaTime);

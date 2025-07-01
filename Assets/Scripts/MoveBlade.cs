@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YG;
 using static UnityEngine.ParticleSystem;
 
 public class MoveBlade : MonoBehaviour
@@ -36,8 +35,8 @@ public class MoveBlade : MonoBehaviour
 
         GameObject particle = Instantiate(particleObject, new Vector3(transform.position.x,-0.5f,transform.position.z), transform.rotation);
 
-        YandexGame.savesData.money += Random.Range(1, 10) ;
-        YandexGame.savesData.kills++;
+        Storage.Instance.money += Random.Range(1, 10) ;
+        Storage.Instance.kills++;
         StartCoroutine(clear(particle));
  
     }

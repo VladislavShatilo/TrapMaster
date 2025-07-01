@@ -15,7 +15,7 @@ public class advButton : MonoBehaviour
     private int money;
     void OnEnable()
     {
-        money = (int)(YandexGame.savesData.addEnemyPrice * 2f);
+        money = (int)(Storage.Instance.addEnemyPrice * 2f);
         enemiesAdvButton.gameObject.SetActive(false);
         speedAdvButton.gameObject.SetActive(false);
         moneyAdvButton.gameObject.SetActive(false);
@@ -25,38 +25,38 @@ public class advButton : MonoBehaviour
         enemiesAdvButton.onClick.AddListener(delegate { openReward(1); });
         speedAdvButton.onClick.AddListener(delegate { openReward(2); });
         moneyAdvButton.onClick.AddListener(delegate { openReward(3); });
-        YandexGame.RewardVideoEvent += addMoneyReward;
+        YG2.onRewardAdv += addMoneyReward;
     }
 
   
-    void addMoneyReward(int id)
+    void addMoneyReward(string id)
     {
-        if (id == 1)
+        if (id == "1")
         {
-            if(YandexGame.savesData.scene == 1)
+            if(Storage.Instance.scene == 1)
             {
                 FindObjectOfType<GameManager>().addEnemyPub();
             }
-            else if(YandexGame.savesData.scene == 2)
+            else if(Storage.Instance.scene == 2)
             {
                 FindObjectOfType<Manager>().addEnemyPub();
             }
 
         }
-        else if (id == 2)
+        else if (id == "2")
         {
-            if (YandexGame.savesData.scene == 1)
+            if (Storage.Instance.scene == 1)
             {
                 FindObjectOfType<GameManager>().addSpeedPub();
             }
-            else if (YandexGame.savesData.scene == 2)
+            else if (Storage.Instance.scene == 2)
             {
                 FindObjectOfType<Manager>().addSpeedPub();
             }
         }
-        else if(id == 3)
+        else if(id == "3")
         {
-            YandexGame.savesData.money += money;
+            Storage.Instance.money += money;
         }
 
 
@@ -64,12 +64,12 @@ public class advButton : MonoBehaviour
     void OnDisable()
     {
 
-        YandexGame.RewardVideoEvent -= addMoneyReward;
+        YG2.onRewardAdv += addMoneyReward;
 
     }
     void openReward(int id)
     {
-        YandexGame.RewVideoShow(id);
+        YG2.RewardedAdvShow(id.ToString());
         if (id == 1)
         {
             enemiesAdvButton.gameObject.SetActive(false);
@@ -89,15 +89,10 @@ public class advButton : MonoBehaviour
         enemiesAdvButton.gameObject.SetActive(true);
         speedAdvButton.gameObject.SetActive(true);
 
-        money = (int)(YandexGame.savesData.addEnemyPrice * 2f);
+        money = (int)(Storage.Instance.addEnemyPrice * 2f);
         moneyAdvButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = 
             FindObjectOfType<Numbers>().FormatNumber(money); 
         moneyAdvButton.gameObject.SetActive(true);
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }

@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using YG;
 
 public class NextStage : MonoBehaviour
 {
@@ -23,11 +22,11 @@ public class NextStage : MonoBehaviour
     void nextStage()
     {
         manager.GetComponent<GameManager>().enabled = false;
-        YandexGame.ResetSaveProgress();
-        YandexGame.SaveProgress();
-        YandexGame.savesData.killsGoal = 50000;
-        YandexGame.savesData.scene = 2;
-        YandexGame.SaveProgress();
+        Storage.Instance.ResetSave();
+        Storage.Instance.Save();
+        Storage.Instance.killsGoal = 50000;
+        Storage.Instance.scene = 2;
+        Storage.Instance.Save();
         manager.GetComponent<Manager>().enabled = true;
         
         for(int i = 0;  i < blades.Length; i++)

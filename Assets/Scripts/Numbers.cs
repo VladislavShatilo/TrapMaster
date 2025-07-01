@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
 public class Numbers : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class Numbers : MonoBehaviour
     }
     void Start()
     {
-        if (YandexGame.savesData.kills >= YandexGame.savesData.killsGoal)
+        if (Storage.Instance.kills >= Storage.Instance.killsGoal)
         {
             newStageObject.SetActive(true);
         }
@@ -38,9 +37,9 @@ public class Numbers : MonoBehaviour
     }
     void Update()
     {
-        kills.text = FormatNumber(YandexGame.savesData.kills) + " / "+ FormatNumber(YandexGame.savesData.killsGoal);
-        slider.value = YandexGame.savesData.kills / YandexGame.savesData.killsGoal;
-        if(YandexGame.savesData.kills == YandexGame.savesData.killsGoal)
+        kills.text = FormatNumber(Storage.Instance.kills) + " / "+ FormatNumber(Storage.Instance.killsGoal);
+        slider.value = Storage.Instance.kills / Storage.Instance.killsGoal;
+        if(Storage.Instance.kills == Storage.Instance.killsGoal)
         {
             newStageObject.SetActive(true);
         }

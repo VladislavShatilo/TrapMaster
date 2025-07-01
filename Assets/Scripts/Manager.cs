@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using YG;
 
 public class Manager : MonoBehaviour
 {
@@ -59,10 +58,10 @@ public class Manager : MonoBehaviour
         {
             maces[i].SetActive(false);
         }
-        for (int i = 0; i < YandexGame.savesData.countOfMaces; i++)
+        for (int i = 0; i < Storage.Instance.countOfMaces; i++)
         {
             maces[i].SetActive(true);
-            Debug.Log(YandexGame.savesData.countOfMaces);
+            Debug.Log(Storage.Instance.countOfMaces);
         }
 
         InvokeRepeating("saveGame", 2f, 2f);
@@ -71,18 +70,18 @@ public class Manager : MonoBehaviour
     void OnEnable()
     {
 
-        spawnInterval = YandexGame.savesData.spawnInterval;
+        spawnInterval = Storage.Instance.spawnInterval;
         InvokeRepeating("SpawnObject", spawnInterval, spawnInterval);
-        addBladePriceText.text = FormatNumber((int)YandexGame.savesData.addBladePrice);
-        addEnemyPriceText.text = FormatNumber((int)YandexGame.savesData.addEnemyPrice);
-        addSpeedPriceText.text = FormatNumber((int)YandexGame.savesData.addSpeedPrice);
+        addBladePriceText.text = FormatNumber((int)Storage.Instance.addBladePrice);
+        addEnemyPriceText.text = FormatNumber((int)Storage.Instance.addEnemyPrice);
+        addSpeedPriceText.text = FormatNumber((int)Storage.Instance.addSpeedPrice);
 
-        addBladeLevelText.text = YandexGame.savesData.addBladeLevel.ToString();
-        addEnemyLevelText.text = YandexGame.savesData.addEnemyLevel.ToString();
-        addSpeedLevelText.text = YandexGame.savesData.addSpeedLevel.ToString();
-        if (YandexGame.savesData.countOfMaces < 4)
+        addBladeLevelText.text = Storage.Instance.addBladeLevel.ToString();
+        addEnemyLevelText.text = Storage.Instance.addEnemyLevel.ToString();
+        addSpeedLevelText.text = Storage.Instance.addSpeedLevel.ToString();
+        if (Storage.Instance.countOfMaces < 4)
         {
-            if (YandexGame.savesData.addBladePrice < YandexGame.savesData.money)
+            if (Storage.Instance.addBladePrice < Storage.Instance.money)
             {
                 addBladePriceImage.color = new Color(0, 110f / 255f, 1);
                 addBladeButton.enabled = true;
@@ -100,7 +99,7 @@ public class Manager : MonoBehaviour
             addBladePriceImage.color = Color.grey;
             addBladeButton.enabled = false;
         }
-        if (YandexGame.savesData.addEnemyPrice < YandexGame.savesData.money)
+        if (Storage.Instance.addEnemyPrice < Storage.Instance.money)
         {
             addEnemyPriceImage.color = new Color(24f / 255f, 238f / 255f, 0);
             addEnemyButton.enabled = true;
@@ -111,7 +110,7 @@ public class Manager : MonoBehaviour
             addEnemyButton.enabled = false;
 
         }
-        if (YandexGame.savesData.addSpeedPrice < YandexGame.savesData.money)
+        if (Storage.Instance.addSpeedPrice < Storage.Instance.money)
         {
             addSpeedPriceImage.color = new Color(204f / 255f, 20f / 255f, 1);
             addSpeedButton.enabled = true;
@@ -123,7 +122,7 @@ public class Manager : MonoBehaviour
             addSpeedButton.enabled = false;
 
         }
-        coinText.text = YandexGame.savesData.money.ToString();
+        coinText.text = Storage.Instance.money.ToString();
 
 
 
@@ -138,9 +137,9 @@ public class Manager : MonoBehaviour
     }
     void addEnemy()
     {
-        if (YandexGame.savesData.money > (int)YandexGame.savesData.addEnemyPrice)
+        if (Storage.Instance.money > (int)Storage.Instance.addEnemyPrice)
         {
-            YandexGame.savesData.money -= (int)YandexGame.savesData.addEnemyPrice;
+            Storage.Instance.money -= (int)Storage.Instance.addEnemyPrice;
             addEnemyPub();
 
         }
@@ -150,32 +149,32 @@ public class Manager : MonoBehaviour
     
     public void addEnemyPub()
     {
-        if (YandexGame.savesData.addEnemyLevel <= 15)
+        if (Storage.Instance.addEnemyLevel <= 15)
         {
-            YandexGame.savesData.spawnInterval -= YandexGame.savesData.spawnInterval * 0.15f;
+            Storage.Instance.spawnInterval -= Storage.Instance.spawnInterval * 0.15f;
 
         }
         else
         {
-            YandexGame.savesData.spawnInterval -= YandexGame.savesData.spawnInterval * 0.07f;
+            Storage.Instance.spawnInterval -= Storage.Instance.spawnInterval * 0.07f;
 
         }
-        YandexGame.savesData.addEnemyPrice *= 1.4f;
-        YandexGame.savesData.addEnemyLevel++;
+        Storage.Instance.addEnemyPrice *= 1.4f;
+        Storage.Instance.addEnemyLevel++;
         reloadGame();
     }
 
 
     void addBlade()
     {
-        if (YandexGame.savesData.money > (int)YandexGame.savesData.addBladePrice)
+        if (Storage.Instance.money > (int)Storage.Instance.addBladePrice)
         {
-            YandexGame.savesData.money -= (int)YandexGame.savesData.addBladePrice;
-            YandexGame.savesData.countOfMaces++;
-            maces[YandexGame.savesData.countOfMaces - 1].SetActive(true);
-            YandexGame.savesData.addBladeLevel++;
+            Storage.Instance.money -= (int)Storage.Instance.addBladePrice;
+            Storage.Instance.countOfMaces++;
+            maces[Storage.Instance.countOfMaces - 1].SetActive(true);
+            Storage.Instance.addBladeLevel++;
 
-            YandexGame.savesData.addBladePrice *= 7f;
+            Storage.Instance.addBladePrice *= 7f;
             reloadGame();
         }
 
@@ -184,9 +183,9 @@ public class Manager : MonoBehaviour
 
     void addSpeed()
     {
-        if (YandexGame.savesData.money > (int)YandexGame.savesData.addSpeedPrice)
+        if (Storage.Instance.money > (int)Storage.Instance.addSpeedPrice)
         {
-            YandexGame.savesData.money -= (int)YandexGame.savesData.addSpeedPrice;
+            Storage.Instance.money -= (int)Storage.Instance.addSpeedPrice;
             addSpeedPub();
 
 
@@ -195,9 +194,9 @@ public class Manager : MonoBehaviour
     }
     public void addSpeedPub()
     {
-        YandexGame.savesData.addSpeedPrice *= 1.25f;
-        YandexGame.savesData.addSpeedLevel++;
-        YandexGame.savesData.speedMace *= 1.15f;
+        Storage.Instance.addSpeedPrice *= 1.25f;
+        Storage.Instance.addSpeedLevel++;
+        Storage.Instance.speedMace *= 1.15f;
 
         reloadGame();
     }
@@ -205,18 +204,15 @@ public class Manager : MonoBehaviour
 
     void saveGame()
     {
-        YandexGame.SaveProgress();
+        Storage.Instance.Save();
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+       
+        if (Storage.Instance.countOfMaces < 4)
         {
-            YandexGame.ResetSaveProgress();
-        }
-        if (YandexGame.savesData.countOfMaces < 4)
-        {
-            if (YandexGame.savesData.addBladePrice < YandexGame.savesData.money)
+            if (Storage.Instance.addBladePrice < Storage.Instance.money)
             {
                 addBladePriceImage.color = new Color(0, 110f / 255f, 1);
                 addBladeButton.enabled = true;
@@ -234,7 +230,7 @@ public class Manager : MonoBehaviour
             addBladePriceImage.color = Color.grey;
             addBladeButton.enabled = false;
         }
-        if (YandexGame.savesData.addEnemyPrice < YandexGame.savesData.money)
+        if (Storage.Instance.addEnemyPrice < Storage.Instance.money)
         {
             addEnemyPriceImage.color = new Color(24f / 255f, 238f / 255f, 0);
             addEnemyButton.enabled = true;
@@ -245,7 +241,7 @@ public class Manager : MonoBehaviour
             addEnemyButton.enabled = false;
 
         }
-        if (YandexGame.savesData.addSpeedPrice < YandexGame.savesData.money)
+        if (Storage.Instance.addSpeedPrice < Storage.Instance.money)
         {
             addSpeedPriceImage.color = new Color(204f / 255f, 20f / 255f, 1);
             addBladeButton.enabled = true;
@@ -257,7 +253,7 @@ public class Manager : MonoBehaviour
             addBladeButton.enabled = false;
 
         }
-        coinText.text = FormatNumber(YandexGame.savesData.money);
+        coinText.text = FormatNumber(Storage.Instance.money);
     }
 
     void SpawnObject()
