@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4545736293d624cb0cdf5e8744d23b, type: 3}
+  m_Name: 1StageSetting
+  m_EditorClassIdentifier: Assembly-CSharp::StageSetting
+  stageNumber: 1
+  trapType: 0
+  targetKills: 5000
+  trapPrefab: {fileID: 8800660798659529366, guid: 07a0b0f4a8e9f594c8c38a37d359b00b, type: 3}
+  trapPositions:
+  - {x: 0, y: 0, z: 31}
+  - {x: 0, y: 0, z: 26}
+  - {x: 0, y: 0, z: 21}
+  - {x: 0, y: 0, z: 16}
+  addTrapPrices: 0000000090010000bc020000e8030000
+  addSpeedPrices: 3200000064000000960000002c010000c20100008a0200008403000014050000a4060000660800005a0a0000800c0000d80e0000621100001e140000
+  addMonsterPrices: 06000000090000000f000000150000001b000000240000002d00000036000000420000005100000063000000750000008a000000a2000000c0000000de000000050100002c0100005c0100008c010000c8010000040200004c02000094020000e80200003c0300009c030000fc03000068040000d40400004c050000c405000048060000cc0600005c070000ec0700008808000024090000cc090000
+  baseSpeed: 2
+  speedMultiplier: 1.5

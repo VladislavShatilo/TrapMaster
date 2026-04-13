@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7992e8ede3abc6747abecb589919dc75, type: 3}
+  m_Name: SpawnSetting
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnSetting
+  startSpawnInterval: 1
+  increaseTimeMultiplier: 0.9
+  maxAliveMonsters: 50
+  spawnInterval: 1
+  blueMonsterChance: 0.15
+  monsterX3Prefab: {fileID: 7452611875013937480, guid: 734d8fc513e26b048a2a4e1709dcd4ae, type: 3}
+  monsterPrefab: {fileID: 7452611875013937480, guid: a47ab1b07b8a4e44e994a15d5a54c532, type: 3}
+  requiredTapsPerSecond: 4
+  tapWindow: 1
+  fastSpawnMultiplier: 3

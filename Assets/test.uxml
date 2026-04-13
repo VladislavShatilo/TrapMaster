@@ -1,0 +1,49 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement name="overlay" class="overlay">
+        <ui:VisualElement name="panel" class="panel">
+            <ui:VisualElement name="header" class="header">
+                <ui:Label text="Settings" class="header-title" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="content">
+                <ui:VisualElement class="setting-row">
+                    <ui:Label text="Audio" class="setting-label" />
+                    <ui:Toggle name="audioToggle" class="settings-toggle" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="setting-row">
+                    <ui:Label text="Trap Audio" class="setting-label" />
+                    <ui:Toggle name="trapAudioToggle" class="settings-toggle" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="setting-row">
+                    <ui:Label text="Music" class="setting-label" />
+                    <ui:Toggle name="musicToggle" class="settings-toggle" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="setting-row">
+                    <ui:Label text="Vibration" class="setting-label" />
+                    <ui:Toggle name="vibrationToggle" class="settings-toggle" />
+                </ui:VisualElement>
+
+                <ui:Button name="privacyButton" class="privacy-button">
+                    <ui:Label text="Privacy Policy" class="privacy-button-text" />
+                </ui:Button>
+
+                <ui:Label text="Join our community" class="community-label" />
+
+                <ui:VisualElement class="social-row">
+                    <ui:Button name="instagramButton" class="social-button instagram-button">
+                        <ui:Label text="Instagram" class="social-button-text" />
+                    </ui:Button>
+
+                    <ui:Button name="discordButton" class="social-button discord-button">
+                        <ui:Label text="Discord" class="social-button-text" />
+                    </ui:Button>
+                </ui:VisualElement>
+
+                <ui:Label text="2.4.0" class="version-label" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

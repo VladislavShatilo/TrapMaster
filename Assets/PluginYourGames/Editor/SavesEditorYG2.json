@@ -1,0 +1,26 @@
+{
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 473,
+    "hasTrapMasterSave": true,
+    "trapMasterSave": {
+        "coins": 16,
+        "kills": 5016,
+        "volume": 1.0,
+        "isMusicOn": true,
+        "isTrapSoundOn": true,
+        "addTrapLevel": 1,
+        "addTrapPrice": 400,
+        "addMonstersLevel": 1,
+        "addMonstersPrice": 6,
+        "addSpeedPrice": 50,
+        "addSpeedLevel": 1,
+        "stage": 1
+    }
+}
